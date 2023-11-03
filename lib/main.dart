@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../screens/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,21 +11,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Home();
+    return Main();
   }
 }
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class Main extends StatelessWidget {
+  const Main({super.key});
 
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'ToDo App',
-      home: Home(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'ToDo App',
+        home: Scaffold(
+          body: Home(),
+        ));
   }
 }
