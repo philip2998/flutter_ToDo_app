@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,12 +19,12 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('ToDo App'),
-        ),
-        body: Container(
-          child: Text('This is home screen'),
-        ));
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'ToDo App',
+      home: Home(),
+    );
   }
 }
