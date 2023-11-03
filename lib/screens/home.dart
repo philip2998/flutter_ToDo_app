@@ -10,7 +10,8 @@ class Home extends StatelessWidget {
         backgroundColor: tdBGColor,
         appBar: _buildAppBar(),
         body: Container(
-          child: Text('This is home screen'),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          child: SearchBox(),
         ));
   }
 
@@ -32,6 +33,37 @@ class Home extends StatelessWidget {
               child: Image.asset('images/flutter_img.jpg')),
         )
       ]),
+    );
+  }
+}
+
+class SearchBox extends StatelessWidget {
+  const SearchBox({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: TextField(
+            decoration: InputDecoration(
+                contentPadding: EdgeInsets.all(0),
+                prefixIcon: Icon(Icons.search, color: tdBlack, size: 20),
+                prefixIconConstraints:
+                    BoxConstraints(maxHeight: 20, maxWidth: 25),
+                border: InputBorder.none,
+                hintText: 'Search',
+                hintStyle: TextStyle(color: tdGrey)),
+          ),
+        )
+      ],
     );
   }
 }
